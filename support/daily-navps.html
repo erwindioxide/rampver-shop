@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="theme-color" content="#124735" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="title" content="Mutual Fund Prices | Rampver Financials" />
+	<meta name="description" content="Track mutual fund price and performance." />
+	<meta property="og:title" content="Rampver Financials | Mutual Fund Prices" />
+	<meta property="og:description" content="Mutual Fund Prices" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="https://rampver.sirv.com/fund-images/salmmf.png" />
+	<meta property="og:site_name" content="Rampver Financials" />
+	<meta property="og:type" content="article" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<link rel="stylesheet" src="../styles/style.css" href="../styles/style.css" />
+	<title>Mutual Fund Prices | Rampver Financials</title>
+	<link rel="icon" href="../img/favicon.png" type="image/png" sizes="16x20" />
+	<link rel="stylesheet" href="../dependencies/bootstrap.min.css" />
+	<link rel="stylesheet" src="../styles/style.css" href="../styles/style.css" />
+	<script type="text/javascript" src="../dependencies/handlebars.min.js"></script>
+	<script type="text/javascript" src="../dependencies/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.getJSON(
+				'https://v2-api.sheety.co/rampverfinancials/mfapi/navps',
+				function (data) {
+					var template = Handlebars.compile($('#item-template').html());
+					$('#navps').html(template(data.navps));
+				}
+			);
+		});
+	</script>
+	<script id="item-template" type="text/x-handlebars-template">
+		<table class="table table-hover table-striped">
+			<h3 class="claimHeader mb-3">Mutual Fund Prices</h3>
+						<tr>
+							<th class="claimHeader">Mutual Fund Name</th>
+							<th class="claimHeader text-right">NAVPS</th>
+							<th class="claimHeader text-right">YTD Return</th>
+						</tr>
+						{{#each this}}
+						<h6 class="claimHeader mb-3 font-italic">{{date}}</h6>
+						<small class="text-secondary" id="historicalNote"></small>
+            <tr>
+							<td class="claimHeader"><small><a href="{{url}}#navChart" class="claimHeader">{{fundname}}</a></small></td>
+							<td class="text-right"><small>{{navps}}</small></td>
+							<td class="text-right"><p class="ytd"><small>{{ytd}}</small></p></td>
+						</tr>
+						{{/each}}
+					</table>
+					<small class="font-italic text-secondary">* Past perfomance is not a guarantee of future returns.</small>
+					<br>
+					<small class="font-italic text-secondary">** NAVPS as of two banking days ago.</small>
+					<br>
+					<small class="font-italic text-secondary">*** Unitized Mutual Funds.</small>
+    </script>
+	<!-- Google Tag Manager -->
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start': new Date().getTime(),
+				event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-PG4287G');
+	</script>
+	<!-- End Google Tag Manager -->
+</head>
+
+<body data-instant-intensity="viewport">
+	<!-- navbar -->
+	<div id="navbarSet"></div>
+	<script src="../components/navbar.js"></script>
+	<!-- navbar -->
+
+	<div class="container px-3 mutual funds">
+		<!-- dropdown -->
+		<div class="dropdown mt-4" id="fundDropdown"></div>
+		<script src="../components/fundDropdown.js"></script>
+		<!-- dropdown -->
+		<!-- info block -->
+
+		<!-- social share addthis -->
+		<div class="addthis_inline_share_toolbox_vxvg mt-3"></div>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e108780a32cd784">
+		</script>
+		<!-- social share addthis -->
+
+		<!-- share via QR Code -->
+		<div id="shareQR"></div>
+		<script src="../components/shareQR.js"></script>
+		<!-- share via QR Code -->
+
+		<!-- Calendly link widget begin -->
+		<link href="../dependencies/calendly_widget.css" rel="stylesheet">
+		<script src="../dependencies/calendly_widget.js"></script>
+		<a href="" class="btn btn-sm rfbtn text-white mb-3"
+			onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rampver/schedule-appointment'});return false;">Schedule
+			a Call</a>
+		<!-- Calendly link widget end -->
+
+		<div id="navps" class="mb-5">
+			<div style="margin:auto">
+				<h3 class="claimHeader text-center mt-2 mb-3">Please wait..</h3>
+				<p class="text-center">
+					<img src="../img/preloader.gif" alt="" style="width: 200px;" class="pb-5 text-center" />
+				</p>
+			</div>
+		</div>
+	</div>
+	<br /><br />
+	<!-- footer -->
+	<div id="footer"></div>
+	<script src="../components/footer.js"></script>
+	<!-- footer -->
+
+	<script>
+		setTimeout(function e() {
+			document.getElementById("historicalNote").innerHTML =
+				"For historical charts and prices, click the name of the mutual fund."
+		}, 3000);
+	</script>
+
+	<!-- Facebook Messenger -->
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function () {
+			FB.init({
+				xfbml: true,
+				version: 'v5.0'
+			});
+		};
+
+		(function (d, s, id) {
+			var js,
+				fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+			fjs.parentNode.insertBefore(js, fjs);
+		})(document, 'script', 'facebook-jssdk');
+	</script>
+	<div class="fb-customerchat" ed_in_greeting="We're here to help you! :D" logged_ouattribution="setup_tool"
+		page_id="355427532453" theme_color="#256141" loggt_greeting="We're here to help you! :D"></div>
+	<!-- Facebook Messenger -->
+	<script src="../js/ytdColor.js"></script>
+	<!-- cookie consent -->
+	<div id="cookieconsent"></div>
+	<link rel="stylesheet" href="../dependencies/cookieconsent.min.css" />
+	<script src="../dependencies/cookieconsent.min.js"></script>
+	<script src="../js/cookieconsent.js"></script>
+	<!-- cookie consent -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG4287G" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<script src="../dependencies/popper.min.js">
+	</script>
+	<script src="../dependencies/bootstrap.min.js">
+	</script>
+	<script src="//instant.page/3.0.0" type="module" defer
+		integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+</body>
+
+</html>

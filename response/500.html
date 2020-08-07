@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#124735" />
+  <link rel="stylesheet" href="../dependencies/bootstrap.min.css" />
+  <link rel="stylesheet" src="../styles/style.css" href="../styles/style.css" />
+  <link rel="icon" href="../img/favicon.png" type="image/png" sizes="16x20" />
+  <title>Oooops?!!</title>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PG4287G');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body data-instant-intensity="viewport">
+  <!-- navbar -->
+  <div id="navbarSet"></div>
+  <script src="../components/navbar.js"></script>
+  <!-- navbar -->
+
+  <div class="container px-5">
+    <br />
+    <h1 class="text-center py-1 mt-2 claimHeader">
+      Sorry :(!
+    </h1>
+    <p class="text-secondary text-center py-1 pb-1">
+      Server Error!
+    </p>
+
+    <div class="text-center" class="mb-3">
+      <h1 class="claimHeader display-2">500!</h1>
+    </div>
+
+    <p class="text-secondary font-italic text-center py-1 pb-1 mt-3">
+      This page will redirect to you to previous page...
+    </p>
+
+    <script>
+      setTimeout(function () {
+        window.history.back();
+      }, 7500);
+    </script>
+
+    <p class="text-center">
+      <a href="https://facebook.com/rampverfinancials" class="btn rfbtn text-white btn-sm mt-3 font-weight-bold"
+        target="_blank"><i class="fab fa-facebook-f text-white mr-3" style="font-size: 100%"></i>Like us on Facebook</a>
+      <br />
+      <a href="https://youtube.com/c/rampverfinancials" class="btn rfbtn text-white btn-sm mt-3 font-weight-bold"
+        target="_blank"><i class="fab fa-youtube text-white mr-1" style="font-size: 100%"></i>Subscribe on Youtube</a>
+    </p>
+  </div>
+
+  <!-- footer -->
+  <div id="footer" style="position: fixed; left: 0; bottom: 0; width: 100%; padding-top: 0px !important;"></div>
+  <script src="../components/footer.js"></script>
+  <!-- footer -->
+  <!-- Facebook Messenger -->
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v5.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+  </script>
+
+  <!-- Your customer chat code -->
+  <div class="fb-customerchat" attribution="setup_tool" page_id="355427532453" theme_color="#256141"
+    logged_in_greeting="We're here to help you! :D" logged_out_greeting="We're here to help you! :D"></div>
+  <!-- Facebook Messenger -->
+
+  <!-- cookie consent -->
+  <div id="cookieconsent"></div>
+  <link rel="stylesheet" href="../dependencies/cookieconsent.min.css" />
+  <script src="../dependencies/cookieconsent.min.js"></script>
+  <script src="../js/cookieconsent.js"></script>
+  <!-- cookie consent -->
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG4287G" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <script type="text/javascript" src="../dependencies/jquery.min.js"></script>
+  <script src="../dependencies/popper.min.js"></script>
+  <script src="../dependencies/bootstrap.min.js"></script>
+  <script src="//instant.page/3.0.0" type="module" defer
+    integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#124735" />
+    <meta name="description" content="Request for your Mutual Fund Statement of Account." />
+    <meta property="og:title" content="Rampver Financials | Statement of Account Request" />
+    <meta property="og:description" content="Request for your Mutual Fund Statement of Account." />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://rampver.sirv.com/fund-images/atrao-pic.png" />
+    <meta property="og:site_name" content="Rampver Financials" />
+    <title>Statement of Account Request</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png" sizes="16x20" />
+    <link rel="stylesheet" href="../dependencies/bootstrap.min.css" />
+    <link rel="stylesheet" src="../styles/style.css" href="../styles/style.css" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PG4287G');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body data-instant-intensity="viewport">
+    <!-- navbar -->
+    <div id="navbarSet"></div>
+    <script src="../components/navbar.js"></script>
+    <!-- navbar -->
+
+    <div class="container mt-3">
+        <div class="mx-auto">
+            <br>
+            <h3 class="claimHeader mt-3 text-center">
+                Statement of Account Request
+            </h3>
+            <br>
+            <div class="form-container">
+                <div class="mt-3 px-3 text-center">
+                    <br />
+                    <div class="px-1">
+                        <p class="text-justify text-secondary">
+                            Please fill out the fields completely and accurately as possible. Incomplete or
+                            incorrect details may cause delay in the Statement of Account generation.
+                        </p>
+                        <p class="text-justify text-secondary">
+                            Statement of Account (SOA) requests normally takes 3-5 banking days to be fulfilled. If
+                            you need it urgently, please get in touch with you Rampver Financials Business
+                            Development Officer.
+                        </p>
+                    </div>
+                    <form action="https://rampver.com/soarequest2020/#wpcf7-f12001-o1" method="post"
+                        class="text-left px-2">
+                        <div style="display: none;">
+                            <input type="hidden" name="_wpcf7" value="12001" />
+                            <input type="hidden" name="_wpcf7_version" value="5.1.6" />
+                            <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f12001-o1" />
+                            <input type="hidden" name="_wpcf7_container_post" value="0" />
+                        </div>
+                        <div class="form-group">
+                            <label for="account_name" class="claimHeader">Full Name*</label>
+                            <input type="text" class="form-control" name="account_name" required
+                                placeholder="Account Name" id="account_name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email_second" class="claimHeader">Email Address*</label>
+                            <input type="email" class="form-control" name="email_second" required
+                                placeholder="Registered Email Address" id="email_second" />
+                        </div>
+                        <div class="form-group">
+                            <label for="folio_number" class="claimHeader">Folio Number/ Account
+                                Number*</label>
+                            <input type="text" class="form-control" required placeholder="Folio Number/ Account Number"
+                                name="folio_number" id="folio_number" />
+                        </div>
+                        <div class="form-group">
+                            <label for="mutual_fund" class="claimHeader">Fund Name*</label>
+                            <select name="mutual_fund" id="mutual_fund" class="form-control">
+                                <option value="Soldivo Funds">Soldivo Funds</option>
+                                <option value="ATR Asset Management, Inc.">ATR Asset Management, Inc. (ATRAM)</option>
+                                <option value="Philequity Management, Inc.">Philequity Management, Inc. (PEMI)</option>
+                                <option value="Sun Life Asset Management Company, Inc.">Sun Life Asset Management
+                                    Company, Inc. (SLAMCI)</option>
+                                <option value="First Metro Asset Management, Inc.">First Metro Asset Management, Inc.
+                                    (FAMI)</option>
+                                <option value="BPI - Philam Asset Management, Inc">BPI - Philam Asset Management, Inc.
+                                    (BIMI-PAMI)</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="claimHeader" for="question">Any questions for us?
+                            </label>
+                            <br />
+                            <textarea type="text" name="question" class="form-control" cols="30" rows="2"
+                                placeholder="Your Message" id="message1"></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <small class="claimHeader font-italic">*Standard SOA requests takes
+                                3-5 banking days to
+                                be fulfilled.</small>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="consent" id="consent1" required />
+                            <small class="text-secondary font-italic form-check-label" for="consent1">
+                                I agree to receive regular updates, promotions,
+                                and recommendations regarding investments,
+                                insurance, healthcare, and personal finance from
+                                Rampver Financials. Visit
+                                <a href="https://rampver.com/privacy">rampver.com/privacy</a>
+                                for more info.
+                            </small>
+                        </div>
+                        <p class="text-center mt-4 mb-4">
+                            <input type="submit" value="Request for SOA" class="text-white btn rfbtn font-weight-bold"
+                                onclick="submitDetails()" />
+                            <br />
+                            <img src="../img/pulse-load.gif" class="d-none" id="pulse-load" style="width: 12%" alt="" />
+                </div>
+                <div class="mb-5 text-white">.</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- </div> -->
+    <br />
+    <!-- footer -->
+    <div id="footer"></div>
+    <script src="../components/footer.js"></script>
+    <!-- footer -->
+    <script>
+        function submitDetails() {
+            document.getElementById('pulse-load').classList.remove('d-none');
+            setTimeout(function submitDetails() {
+                document.getElementById('pulse-load').classList.add('d-none');
+            }, 5000);
+        }
+    </script>
+    <!-- Facebook Messenger -->
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v5.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'facebook-jssdk');
+    </script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution="setup_tool" page_id="355427532453" theme_color="#256141"
+        logged_in_greeting="We're here to help you! :D" logged_out_greeting="We're here to help you! :D"></div>
+    <!-- Facebook Messenger -->
+
+    <!-- cookie consent -->
+    <div id="cookieconsent"></div>
+    <link rel="stylesheet" href="../dependencies/cookieconsent.min.css" />
+    <script src="../dependencies/cookieconsent.min.js"></script>
+    <script src="../js/cookieconsent.js"></script>
+    <!-- cookie consent -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG4287G" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script type="text/javascript" src="../dependencies/jquery.min.js"></script>
+    <script type="text/javascript" src="../dependencies/popper.min.js"></script>
+    <script type="text/javascript" src="../dependencies/bootstrap.min.js"></script>
+    <script src="//instant.page/3.0.0" type="module" defer
+        integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+</body>
+
+</html>

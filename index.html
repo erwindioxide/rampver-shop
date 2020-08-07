@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#124735" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="title" content="Rampver Financials' Recommended Mutual Funds in the Philippines" />
+    <meta name="description" content="Our recommendations are based on several factors such as fund
+    performance, asset allocation, track record, and ease of application.
+    With this, you can be assured that what you will be investing in is the
+    right fund for your financial needs and capabilities." />
+    <meta property="og:title" content="Rampver Financials | Recommended Mutual Funds" />
+    <meta property="og:description" content="Find our Recommended Mutual Fund investments for as low as ₱1,000!" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="https://i.ibb.co/j4S4TgX/recommended.png" />
+    <meta property="og:site_name" content="Rampver Financials" />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" src="./styles/style.css" href="./styles/style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="icon" href="./img/favicon.png" type="image/png" sizes="16x20" />
+    <title>Rampver Financials Recommended Funds</title>
+
+    <!-- redirect to recommended -->
+    <script>
+        window.location.href = "./products/health/maxicare.html";
+    </script>
+    <!-- redirect to recommended -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/lazysizes.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.getJSON(
+                'https://v2-api.sheety.co/rampverfinancials/mfapi/recommended',
+                function (data) {
+                    var template = Handlebars.compile($('#item-template').html());
+                    $('#recommended').html(template(data.recommended));
+                }
+            );
+        });
+    </script>
+    <script id="item-template" type="text/x-handlebars-template">
+        <div class="row mt-4 mutualfunds">
+            {{#each this}}
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="text-center">
+                        <img data-src="{{imageurl}}" alt="{{fundname}}" class="previewimg lazyload">
+                    </div>
+                    <h5 class="text-center mb-2 claimHeader mt-3 mx-2"><a href="./funds/fund-details.html?fundmanagercode={{fundmanagercode}}&id={{id}}" class="claimHeader">{{fundname}}</a></h5>
+                    <div class="my-1 mx-3 mt-2">
+                        <div class="d-flex justify-content-between" id="taglevel">
+                            <small class="claimHeader mt-1"><a href="" class="claimHeader typelink">{{type}}</a></small>
+                            <div class="d-flex mb-2" id="tags">
+                                <small><a class="indiv-tag btn text-white px-2 py-1" href="./funds/recommended.html">{{recommended}}</a></small>
+                                <small><a class="indiv-tag btn text-white px-2 py-1 ml-1" href="./funds/indexfunds.html">{{index}}</a></small>
+                                <small><a class="indiv-tag btn text-white px-2 py-1 ml-1" href="./funds/dollar.html">{{dollar}}</a></small>
+                            </div>
+                        </div>
+                        <div class="mt-2"></div>
+                        <small class="mt-2">🛡️ For {{riskprofile}}-type investors.</small>
+                        <br>
+                        <small>✔️ Min. initial investment is {{initial}}.</small>
+                        <br>
+                        <small>✔️ Min. additional investment is {{additional}}.</small>
+                        <br>
+                        <div class="mt-2"></div>
+                        <small class="claimHeader mt-3">This fund is for you if:</small>
+                        <br>
+                        <p class="text-justify mt-2">
+                            <small style="text-align: justify">{{ffy1}}</small>
+                        </p>
+                        <div class="text-center mb-3 mt-3">
+                            <button class="btn px-4 font-weight-bold claimHeader border" data-toggle="modal" data-target="#viewMore{{fundmanagercode}}{{id}}">Preview</button>
+                            <a class="ml-4 btn px-4 text-white font-weight-bold rfbtn" href="./funds/fund-details.html?fundmanagercode={{fundmanagercode}}&id={{id}}">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="viewMore{{fundmanagercode}}{{id}}" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex align-items-center">
+                            <h5 class="text-left claimHeader">{{fundname}}</h5>
+                            <h5 class="text-secondary font-weight-bold text-right ml-auto p-2" data-dismiss="modal"> X</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div role="document">
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <div class="text-center">
+                                            <img data-src="{{imageurl}}" class="mt-2 previewimg rounded lazyload">
+                                        </div>
+                                        <div class="my-2 mx-3">
+                                            <br>
+                                            <div>
+                                                <div class="d-flex mb-3" id="tagModal">
+                                                    <small><a class="indiv-tag btn text-white px-2 py-1" href="./funds/recommended.html">{{recommended}}</a></small>
+                                                    <small><a class="indiv-tag btn text-white px-2 py-1 ml-1" href="./funds/indexfunds.html">{{index}}</a></small>
+                                                    <small><a class="indiv-tag btn text-white px-2 py-1 ml-1" href="./funds/dollar.html">{{dollar}}</a></small>
+                                                </div>
+                                                <p class="claimHeader"><a href="" class="claimHeader typelink">{{type}}</a></p>
+                                                <p class="claimHeader">{{fundmanagername}}</p>
+                                                <hr>
+                                                <small>🛡️ For {{riskprofile}}-type investors.</small>
+                                                <br>
+                                                <small>🕒 Recommended time horizon is {{timehorizon}}.</small>
+                                                <br>
+                                                <small>✔️ Minimum initial investment is {{initial}}.</small>
+                                                <br>
+                                                <small>✔️ Minimum additional investment is {{additional}}.</small>
+                                                <br>
+                                                <small class="claimHeader">📝 Fund Description</small>
+                                                <hr>
+                                                <p class="text-justify mt-2">
+                                                    <small class="text-justify">{{introduction}}</small>
+                                                </p>
+                                                <br>
+                                                <small class="claimHeader">📑 This fund is for you if:</small>
+                                                <hr>
+                                                <ul>
+                                                    <li>
+                                                        <p class="text-justify mt-2">
+                                                            <small style="text-align: justify">{{ffy1}}</small>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="text-justify mt-2">
+                                                            <small style="text-align: justify">{{ffy2}}</small>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="text-justify mt-2">
+                                                            <small style="text-align: justify">{{ffy3}}</small>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PG4287G');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body data-instant-intensity="viewport">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid d-flex">
+            <div class="navbar-brand" href="#">
+                <img src="./img/rf-logo.png" />
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto order-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://rampver.com/why-rampver/" target="_blank">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./" target="_blank">Mutual Funds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./support/daily-navps.html">NAVPS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./support/forms.html">Forms and Guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./risk-profiler/quiz.html">Take the Quiz!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://rampver.com/seedbox/" target="_blank">Seedbox</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://rampver.com/contact-us/" target="_blank">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://rampver.com/privacy/" target="_blank">Privacy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container px-3 mutual funds">
+        <!-- dropdown -->
+
+        <div class="dropdown mt-4">
+            <label class="claimHeader">🔎 Browse Mutual Funds: </label>
+            <button class="btn btn-block border dropdown-toggle text-left" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ✔️ Rampver's Recommended Funds
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="./index.html">✔️ Rampver's Recommended Funds</a>
+                <a class="dropdown-item" href="./funds/all.html">All Mutual Funds</a>
+                <a class="dropdown-item" href="./funds/indexfunds.html">Index Funds</a>
+                <a class="dropdown-item" href="./funds/dollar.html">Dollar Funds</a>
+                <hr />
+                <small class="dropdown-item text-secondary font-italic">By Investor Risk Profile</small>
+                <a class="dropdown-item" href="./funds/aggressive.html">For Aggressive Investor (Equity Funds)</a>
+                <a class="dropdown-item" href="./funds/moderate.html">For Moderate Investor (Balanced Funds)</a>
+                <a class="dropdown-item" href="./funds/conservative.html">For Conservative Investor (Bond Funds)</a>
+                <hr />
+                <small class="dropdown-item text-secondary font-italic">By Investment House</small>
+                <a class="dropdown-item" href="./funds/soldivo.html">Soldivo Funds (SOLDIVO)</a>
+                <a class="dropdown-item" href="./funds/atram.html">ATR Asset Management (ATRAM)</a>
+                <a class="dropdown-item" href="./funds/pemi.html">Philequity Management (PEMI)</a>
+                <a class="dropdown-item" href="./funds/slamci.html">Sun Life Asset Management (SLAMCI)</a>
+                <a class="dropdown-item" href="./funds/fami.html">First Metro Asset Management (FAMI)</a>
+                <a class="dropdown-item" href="./funds/pami.html">Philam Asset Management (PAMI)</a>
+            </div>
+        </div>
+        <!-- dropdown -->
+        <!-- info block -->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2 class="text-left claimHeader">
+                            Rampver's Recommended Funds
+                        </h2>
+                        <h6 class="text-left claimHeader font-italic mt-3">
+                            Offering you the best mutual fund selections.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- social share addthis -->
+        <div class="addthis_inline_share_toolbox_vxvg mt-3"></div>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e108780a32cd784">
+        </script>
+        <!-- social share addthis -->
+
+        <!-- share via QR Code -->
+        <div id="shareQR"></div>
+        <script src="./components/shareQR.js"></script>
+        <!-- share via QR Code -->
+
+        <!-- Calendly link widget begin -->
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+        <a href="" class="btn btn-sm rfbtn text-white mb-3"
+            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rampver/schedule-appointment'});return false;">Schedule
+            a Call</a>
+        <!-- Calendly link widget end -->
+
+        <br />
+        <h4 class="claimHeader text-left">
+            About our Recommended Mutual Funds
+        </h4>
+        <hr />
+        <p class="text-justify">
+            Confused what mutual fund is the best for you? Choose from our list of recommended mutual funds and start
+            investing for your financial future.
+        </p>
+
+        <p class="text-justify">
+            Our recommendations are based on several factors such as fund performance, asset allocation, track record,
+            and ease of application. With this, you can be assured that what you will be investing in is the right fund
+            for your financial needs and capabilities.
+        </p>
+        <br />
+        <h4 class="claimHeader text-left" id="profilelink">
+            Recommended Funds Catalog
+        </h4>
+        <hr />
+        <!-- info block -->
+
+        <div id="recommended">
+            <div style="margin:auto">
+                <br />
+                <br />
+                <h3 class="claimHeader text-center mt-2 mb-3">Please wait..</h3>
+                <p class="text-center">
+                    <img src="./img/preloader.gif" alt="" style="width: 200px;" class="pb-5 text-center" />
+                </p>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+    <br />
+    <!-- STICKY BTN -->
+    <div id="genInqBtn" class="mb-0"></div>
+    <script src="./components/genInquiry.js"></script>
+    <!-- STICKY BTN -->
+
+    <!-- footer -->
+    <div id="footer"></div>
+    <script src="./components/footer.js"></script>
+    <!-- footer -->
+
+    <!-- cookie consent -->
+    <div id="cookieconsent"></div>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script src="./js/cookieconsent.js"></script>
+    <!-- cookie consent -->
+    <script src="./js/tagIdentify.js"></script>
+    <script src="./js/validator.js"></script>
+    <script src="./js/lazysizes.min.js"></script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG4287G" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/b2291eba76.js"></script>
+    <script src="//instant.page/3.0.0" type="module" defer
+        integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+</body>
+
+</html>
