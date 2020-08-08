@@ -164,20 +164,20 @@ $('.clear-cart').click(function () {
 });
 
 
+
 function displayCart() {
 	var cartArray = shoppingCart.listCart();
 	var output = "";
 	for (var i in cartArray) {
 		output += "<tr>" +
 			"<td>" + cartArray[i].name + "</td>" +
-			"<td>" + cartArray[i].price + "</td>" +
-			"<td><div class='input-group'>" +
+			"<td><div class='input-group'><div class='input-group-prepend'><button class='minus-item input-group-addon btn btn-sm text-white rfbtn' data-name='" + cartArray[i].name + "'>-</button></div>" +
 			"<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>" +
-			"</div></td>" +
-			"<td><button class='delete-item btn btn-danger' data-name='" + cartArray[i].name + "'>X</button></td>" +
+			"<div class='input-group-append'><button class='plus-item btn btn-sm rfbtn text-white input-group-addon' data-name='" + cartArray[i].name + "'>+</button></div></div></td>" +
+			"<td>Price: " + cartArray[i].total + "</td>" + "</tr>" +
+			"<tr>" + "<td>" + cartArray[i].price + " each</td>" + "<td><button class='delete-item btn btn-sm btn-danger' data-name='" + cartArray[i].name + "'>Delete Item</button></td>" +
 			" = " +
-			"<td>" + cartArray[i].total + "</td>" +
-			"</tr>";
+			"</tr>" + "<br>";
 	}
 	$('.show-cart').html(output);
 	$('.total-cart').html(shoppingCart.totalCart());
@@ -191,18 +191,18 @@ $('.show-cart').on("click", ".delete-item", function (event) {
 	displayCart();
 })
 
-// // -1
-// $('.show-cart').on("click", ".minus-item", function (event) {
-// 	var name = $(this).data('name')
-// 	shoppingCart.removeItemFromCart(name);
-// 	displayCart();
-// })
-// // +1
-// $('.show-cart').on("click", ".plus-item", function (event) {
-// 	var name = $(this).data('name')
-// 	shoppingCart.addItemToCart(name);
-// 	displayCart();
-// })
+// -1
+$('.show-cart').on("click", ".minus-item", function (event) {
+	var name = $(this).data('name')
+	shoppingCart.removeItemFromCart(name);
+	displayCart();
+})
+// +1
+$('.show-cart').on("click", ".plus-item", function (event) {
+	var name = $(this).data('name')
+	shoppingCart.addItemToCart(name);
+	displayCart();
+})
 
 // Item count input
 $('.show-cart').on("input", ".item-count", function (event) {
