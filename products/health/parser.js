@@ -84,8 +84,10 @@ function dataFill(json) {
 		};
 	};
 
-
-
+	//add-to-cart
+	document.getElementById("sticky").setAttribute("data-img", json[0].imageUrl);
+	document.getElementById("sticky").setAttribute("data-name", json[0].productName);
+	document.getElementById("sticky").setAttribute("data-price", json[0].price);
 
 }
 
@@ -97,11 +99,3 @@ let output = fetch(api)
 		this.dataFill(json);
 		console.log(json);
 	})
-
-
-// order number algo
-// var date = new Date();
-// currentHours = date.getSeconds();
-// rand = Math.floor(Math.random() * 10);
-// currentHours = rand + ("0" + currentHours).slice(-1) + (rand*2);
-// currentHours.slice(0,3);
